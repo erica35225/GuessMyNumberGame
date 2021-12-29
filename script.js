@@ -65,26 +65,34 @@ document.querySelector('.check').addEventListener('click', function () {
     else if (guess > secretNumber) {
         document.querySelector('.message').textContent = "too high"
         if (score > 1) {
-            score--;
-            document.querySelector('.score').textContent = score
+            updateScore
         }
         else {
-            document.querySelector('.score').textContent = "game over"
-            document.querySelector('.message').textContent = "you loose Try again"
+           gameIsLost
+           gameIsOver
         }
     }
     else if (guess < secretNumber) {
         document.querySelector('.message').textContent = "too low"
         if (score > 1) {
-            score--;
-            document.querySelector('.score').textContent = score
+            updateScore
         }
         else {
-            document.querySelector('.score').textContent = "game over"
-            document.querySelector('.message').textContent = "you loose Try Again"
+            gameIsLost
+           gameIsOver
         }
     }
 })
+const gameIsLost = function() {
+    document.querySelector('.message').textContent = "you loose Try again"
+}
+const gameIsOver = function (){
+    document.querySelector('.score').textContent = "game over"
+}
+const updateScore = function (){
+    score--;
+    document.querySelector('.score').textContent = score
+}
 
 
 
